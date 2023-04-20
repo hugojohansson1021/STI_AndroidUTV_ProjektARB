@@ -1,6 +1,7 @@
 package com.example.projektarb.remote
 
 import com.example.projektarb.data.MovieResponse
+import com.example.projektarb.data.moviedetails.MovieDetails
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -20,4 +21,11 @@ interface MovieInterface {
     ): Response<MovieResponse>
 
 
+
+    @GET("/")
+    suspend fun getMovieDetails(
+
+        @Query("i") imdbid: String,
+        @Query("apiKey")apiKey: String,
+    ): Response<MovieDetails>
 }
