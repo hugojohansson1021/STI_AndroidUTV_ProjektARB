@@ -25,7 +25,7 @@ interface MovieInterface {
     @GET("/")
     suspend fun getMovieDetails(
 
-        @Query("i") imdbid: String,
+        @Query("i") imdbId: String,
         @Query("apiKey")apiKey: String,
     ): Response<MovieDetails>
 }

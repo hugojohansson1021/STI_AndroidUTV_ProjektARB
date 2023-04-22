@@ -1,6 +1,7 @@
 package com.example.projektarb.hilt
 
 import com.example.projektarb.remote.MovieInterface
+import com.example.projektarb.ui.details.MovieDetailsRepository
 import com.example.projektarb.utils.Constants
 import dagger.Module
 import dagger.Provides
@@ -23,6 +24,13 @@ object HiltModules {
             GsonConverterFactory.create()).build().create(MovieInterface::class.java)//this chain code provides using hilt, life to MovieInterface.kt values
     }
 
+
+
+
+    @Provides
+    fun provideRepository(movieInterface: MovieInterface): MovieDetailsRepository{
+        return MovieDetailsRepository(movieInterface)
+    }
 
 
 }
