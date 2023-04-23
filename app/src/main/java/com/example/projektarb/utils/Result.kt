@@ -19,6 +19,7 @@ class Result<out T>(val status: Status, val data: T?, message: String?) {
 
 }
 
+// enum Only statuses we hve are the following
 enum class Status {
     SUCCESS,
     LOADING,

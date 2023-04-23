@@ -5,12 +5,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.projektarb.MovieViewModel
+import com.example.projektarb.R
 import com.example.projektarb.databinding.FragmentMovieBinding
 
 import dagger.hilt.android.AndroidEntryPoint
@@ -71,6 +73,12 @@ class MovieFragment : Fragment() {
         }
 
 
+        val signUpButton = view.findViewById<Button>(R.id.signUpButton)
+        signUpButton.setOnClickListener {
+            findNavController().navigate(R.id.signUpFragment)
+        }
+
+
     }
 
     private fun setRecyclerView() {
@@ -79,6 +87,7 @@ class MovieFragment : Fragment() {
             layoutManager = GridLayoutManager(requireContext(), 2)
         }
     }
+
 
 
 }

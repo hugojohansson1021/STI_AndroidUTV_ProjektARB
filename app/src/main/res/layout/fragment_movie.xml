@@ -21,6 +21,14 @@
             app:title="Movie Details"
             app:titleTextColor="@color/white">
 
+
+            <Button
+                android:id="@+id/signUpButton"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+
+                android:text="Sign Up" />
+
             <androidx.appcompat.widget.SearchView
                 android:id="@+id/movie_search"
                 style="@style/Widget.AppCompat.SearchView"

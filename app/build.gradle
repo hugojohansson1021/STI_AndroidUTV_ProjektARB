@@ -51,7 +51,6 @@ dependencies {
 
     // https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-gradle-plugin
     //implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.20")
-
     //implementation "org.jetbrains.kotlin:kotlin_version:1.8.20"
     //implementation "org.jetbrains.kotlin:kotlin-symbol-processing-api:1.4.0-rc-dev-experimental-20200828"
     //implementation "org.jetbrains.kotlin:kotlin_version"
