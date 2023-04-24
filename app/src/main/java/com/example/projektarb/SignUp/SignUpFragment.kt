@@ -4,11 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 
 import androidx.fragment.app.Fragment
 
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.example.projektarb.R
 import com.example.projektarb.SignUp.User.User
 import com.example.projektarb.SignUp.User.UserViewModel
 
@@ -42,6 +44,13 @@ class SignUpFragment : Fragment() {
         return binding.root
     }
 
+
+
+
+
+
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -59,7 +68,14 @@ class SignUpFragment : Fragment() {
 
             val users = userViewModel.users.map { "${it.name}, ${it.email}, ${it.password}" }
             binding.usersTextView.text = users.joinToString("\n")
+
         }
+
+        //Trying to color the fn buttons
+        binding.submitButton.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.babyGreen))
+        binding.clearButton.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.babyGreen))
+
+
 
         binding.clearButton.setOnClickListener {
             userViewModel.clearUsers()
@@ -84,6 +100,14 @@ class SignUpFragment : Fragment() {
         outState.putString("email", signUpViewModel.email)
         outState.putString("password", signUpViewModel.password)
     }
+
+
+
+
+
+
+
+
 }
 
 

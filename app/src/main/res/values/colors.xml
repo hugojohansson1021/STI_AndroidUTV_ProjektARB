@@ -7,4 +7,18 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="WineRed">#800000</color>
+    <color name="babyBlue">#abcbe3</color>
+
+    <color name="babyLightGrey">#667386</color>
+    <color name="babyGrey">#414e60</color>
+    <color name="babyLightGreen">#79a892</color>
+    <color name="babyGreen">#66a37d</color>
+    <color name="greyGreay">#555555</color>
+    <color name="grey3">#2D2D2D</color>
+
+
+
+
+
 </resources>
