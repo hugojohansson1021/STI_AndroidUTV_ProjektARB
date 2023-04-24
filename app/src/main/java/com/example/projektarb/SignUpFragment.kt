@@ -24,8 +24,19 @@ import com.example.projektarb.databinding.FragmentSignUpBinding
 
 class SignUpFragment : Fragment() {
     private lateinit var userViewModel: UserViewModel
-
+    private lateinit var signUpViewModel: SignUpViewModel
     private lateinit var binding: FragmentSignUpBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
+        signUpViewModel = ViewModelProvider(this).get(SignUpViewModel::class.java)
+
+        // Restore user input from ViewModel (if it exists)
+        signUpViewModel.name = savedInstanceState?.getString("name") ?: ""
+        signUpViewModel.email = savedInstanceState?.getString("email") ?: ""
+        signUpViewModel.password = savedInstanceState?.getString("password") ?: ""
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,37 +49,46 @@ class SignUpFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
+        binding.nameEditText.setText(signUpViewModel.name)
+        binding.emailEditText.setText(signUpViewModel.email)
+        binding.passwordEditText.setText(signUpViewModel.password)
 
-        //val backButtonSignUpFragment = binding.backPress1
-        binding.backPress1.setOnClickListener {
-            findNavController().popBackStack()
-        }
+        binding.submitButton.setOnClickListener {
+            signUpViewModel.name = binding.nameEditText.text.toString()
+            signUpViewModel.email = binding.emailEditText.text.toString()
+            signUpViewModel.password = binding.passwordEditText.text.toString()
 
-        val nameEditText = binding.nameEditText
-        val emailEditText = binding.emailEditText
-        val passwordEditText = binding.passwordEditText
-        val submitButton = binding.submitButton
-        val clearButton = binding.clearButton
-        val usersTextView = binding.usersTextView
-
-        submitButton.setOnClickListener {
-            val name = nameEditText.text.toString()
-            val email = emailEditText.text.toString()
-            val password = passwordEditText.text.toString()
-
-            val user = User(name, email, password)
+            val user = User(signUpViewModel.name, signUpViewModel.email, signUpViewModel.password)
             userViewModel.addUser(user)
 
             val users = userViewModel.users.map { "${it.name}, ${it.email}, ${it.password}" }
-            usersTextView.text = users.joinToString("\n")
+            binding.usersTextView.text = users.joinToString("\n")
         }
 
-        clearButton.setOnClickListener {
+        binding.clearButton.setOnClickListener {
             userViewModel.clearUsers()
-            usersTextView.text = ""
+            binding.usersTextView.text = ""
+        }
+
+        binding.backPress1.setOnClickListener {
+            findNavController().popBackStack()
         }
     }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+
+        // Save user input to ViewModel
+        signUpViewModel.name = binding.nameEditText.text.toString()
+        signUpViewModel.email = binding.emailEditText.text.toString()
+        signUpViewModel.password = binding.passwordEditText.text.toString()
+
+        // Save user input to Bundle
+        outState.putString("name", signUpViewModel.name)
+        outState.putString("email", signUpViewModel.email)
+        outState.putString("password", signUpViewModel.password)
+    }
 }
+
 
 
