@@ -1,4 +1,4 @@
-package com.example.projektarb
+package com.example.projektarb.SignUp
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment
 
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.example.projektarb.SignUp.User.User
+import com.example.projektarb.SignUp.User.UserViewModel
 
 
 import com.example.projektarb.databinding.FragmentSignUpBinding

@@ -256,7 +256,178 @@
 
 
                 </LinearLayout>
+
+
                 //////
+
+
+
+                <LinearLayout
+                    android:id="@+id/ll8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ll7"
+                    android:orientation="horizontal"
+                    android:padding="8dp">
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Genre : "
+                        android:textSize="16sp" />
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{movieDetails.genre}"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:id="@+id/ll9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ll8"
+                    android:orientation="horizontal"
+                    android:padding="8dp">
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Writer : "
+                        android:textSize="16sp" />
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{movieDetails.writer}"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/l20"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ll9"
+                    android:orientation="horizontal"
+                    android:padding="8dp">
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Director : "
+                        android:textSize="16sp" />
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{movieDetails.director}"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/l21"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/l20"
+                    android:orientation="horizontal"
+                    android:padding="8dp">
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rated : "
+                        android:textSize="16sp" />
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{movieDetails.rated}"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/l22"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/l21"
+                    android:orientation="horizontal"
+                    android:padding="8dp">
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Production : "
+                        android:textSize="16sp" />
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{movieDetails.production}"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/l23"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/l22"
+                    android:orientation="horizontal"
+                    android:padding="8dp">
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Box Office : "
+                        android:textSize="16sp" />
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{movieDetails.boxOffice}"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/l24"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/l23"
+                    android:orientation="horizontal"
+                    android:padding="8dp">
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Plot : "
+                        android:textSize="16sp" />
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{movieDetails.plot}"
+                        android:textSize="16sp" />
+                </LinearLayout>
 
 
             </RelativeLayout>

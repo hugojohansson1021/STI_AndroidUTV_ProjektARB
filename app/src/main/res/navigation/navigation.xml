@@ -30,7 +30,7 @@
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="com.example.projektarb.SignUpFragment"
+        android:name="com.example.projektarb.SignUp.SignUpFragment"
         android:label="fragment_sign_up"
         tools:layout="@layout/fragment_sign_up" />
 </navigation>

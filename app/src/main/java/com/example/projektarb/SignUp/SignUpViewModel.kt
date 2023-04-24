@@ -1,4 +1,4 @@
-package com.example.projektarb
+package com.example.projektarb.SignUp
 
 import androidx.lifecycle.ViewModel
 

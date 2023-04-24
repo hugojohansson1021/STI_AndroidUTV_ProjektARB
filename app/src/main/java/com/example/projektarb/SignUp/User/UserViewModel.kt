@@ -1,6 +1,7 @@
-package com.example.projektarb
+package com.example.projektarb.SignUp.User
 
 import androidx.lifecycle.ViewModel
+import com.example.projektarb.SignUp.User.User
 
 class UserViewModel : ViewModel() {
     val users = mutableListOf<User>()
