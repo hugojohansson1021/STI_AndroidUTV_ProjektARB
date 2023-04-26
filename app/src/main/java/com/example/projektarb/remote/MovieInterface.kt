@@ -11,7 +11,7 @@ interface MovieInterface {
 
 
 
-    // get request to server, provide movie data
+    // get request to remote server, to provide movie data
     @GET("/")
     suspend fun getAllMovies(
 

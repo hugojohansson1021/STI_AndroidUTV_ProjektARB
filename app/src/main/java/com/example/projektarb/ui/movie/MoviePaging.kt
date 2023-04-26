@@ -17,17 +17,16 @@ class MoviePaging(val s: String, val movieInterface: MovieInterface) : PagingSou
 // position"it".
         return state.anchorPosition?.let{
             val anchorPage = state.closestPageToPosition(it)
-// if ancorepage have pevKey then add 1 to it; otherwise ancorepage nextkey minus 1
+// if ancorepage have prevKey then add 1 to it; otherwise ancorepage nextkey minus 1
             anchorPage?.prevKey?.plus(1) ?: anchorPage?.nextKey?.minus(1)
         }
     }
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Movie> {
 //page variable= pagenumber.
+
 //if params.key = null return 1
-
-
-        val page= params.key ?: 1
+        val page= params.key?: 1
 
         return try {
 

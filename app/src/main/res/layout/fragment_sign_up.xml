@@ -7,7 +7,7 @@
 <ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/babyLightGrey"
+    android:background="@color/greyGreay"
     >
 
     <LinearLayout
@@ -41,6 +41,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Email"
+            android:textColor="@color/white"
             android:minHeight="48dp" />
 
         <EditText
@@ -48,6 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password"
+            android:textColor="@color/white"
             android:inputType="textPassword"
             android:minHeight="48dp" />
 
@@ -68,7 +70,9 @@
         <TextView
             android:id="@+id/usersTextView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            />
 
 
     </LinearLayout>

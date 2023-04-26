@@ -17,7 +17,7 @@
             android:id="@+id/movie_toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/babyGrey"
+            android:background="@color/greyGreay"
 
 
             app:title="Movie library"

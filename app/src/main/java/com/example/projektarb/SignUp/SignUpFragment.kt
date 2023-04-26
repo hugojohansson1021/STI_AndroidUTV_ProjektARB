@@ -71,9 +71,9 @@ class SignUpFragment : Fragment() {
 
         }
 
-        //Trying to color the fn buttons
-        binding.submitButton.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.babyGreen))
-        binding.clearButton.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.babyGreen))
+        //Trying to color the fkn buttons
+        binding.submitButton.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.RedFlix))
+        binding.clearButton.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.RedFlix))
 
 
 

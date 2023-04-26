@@ -26,6 +26,7 @@ class MoviePagingAdapter : PagingDataAdapter<Movie,MoviePagingAdapter.MyViewHold
 
             override fun areItemsTheSame(oldItem: Movie, newItem: Movie): Boolean {
                 return oldItem.imdbID==newItem.imdbID
+                //making sure the list does not contain the same movie (imdbId)
             }
 
 
@@ -43,6 +44,8 @@ class MoviePagingAdapter : PagingDataAdapter<Movie,MoviePagingAdapter.MyViewHold
     }
 
     inner class MyViewHolder(val viewDataBinding: ViewHolderMovieBinding): RecyclerView.ViewHolder(viewDataBinding.root)
+
+
 //setting variables using BR to access view_holder_movie.xml variables
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val data= getItem(position)

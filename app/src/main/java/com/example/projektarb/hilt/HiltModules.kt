@@ -21,7 +21,8 @@ object HiltModules {
     @Provides
     fun provideRetrofitInterface(): MovieInterface{
         return Retrofit.Builder().baseUrl(Constants.BASE_URL).addConverterFactory(
-            GsonConverterFactory.create()).build().create(MovieInterface::class.java)//this chain code provides using hilt, life to MovieInterface.kt values
+            GsonConverterFactory.create()).build().create(MovieInterface::class.java)
+    //this chain code provides using hilt, life to MovieInterface.kt values
     }
 
 
