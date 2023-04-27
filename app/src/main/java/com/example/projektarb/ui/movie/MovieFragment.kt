@@ -75,12 +75,20 @@ class MovieFragment : Fragment() {
         }
 
 
+        //val signUpButton = view.findViewById<Button>(R.id.signUpButton)
+        //signUpButton.setBackgroundColor(ContextCompat.getColor(requireContext(),R.color.RedFlix))
+        //signUpButton.setOnClickListener {
+            //findNavController().navigate(R.id.signUpFragment)
+
+       // }
+
+
         val signUpButton = view.findViewById<Button>(R.id.signUpButton)
         signUpButton.setBackgroundColor(ContextCompat.getColor(requireContext(),R.color.RedFlix))
         signUpButton.setOnClickListener {
-            findNavController().navigate(R.id.signUpFragment)
+        findNavController().navigate(R.id.signUpFragment)
+         }
 
-        }
 
 
     }

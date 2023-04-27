@@ -39,11 +39,13 @@ class MovieViewModel @Inject constructor(private val movieInterface: MovieInterf
         query.postValue(s)
     }
 
+
+
+
+
+
+
 //Set up for movie details
-
-
-
-
     private val _movieDetails= MutableLiveData<Events<Result<MovieDetails>>>()
     val movieDetails:LiveData<Events<Result<MovieDetails>>> = _movieDetails
 

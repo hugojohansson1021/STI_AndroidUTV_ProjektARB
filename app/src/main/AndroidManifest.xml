@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
+
         android:name=".BaseClass"
         android:allowBackup="true"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -25,6 +26,9 @@
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+
+
+
 
         </activity>
     </application>

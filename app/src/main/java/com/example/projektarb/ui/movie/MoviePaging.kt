@@ -8,6 +8,10 @@ import com.example.projektarb.remote.MovieInterface
 import com.example.projektarb.utils.Constants
 
 class MoviePaging(val s: String, val movieInterface: MovieInterface) : PagingSource<Int, Movie>() {
+// take two arguments String Movieinteface
+
+
+
 
 
     override fun getRefreshKey(state: PagingState<Int, Movie>): Int? {
@@ -21,6 +25,12 @@ class MoviePaging(val s: String, val movieInterface: MovieInterface) : PagingSou
             anchorPage?.prevKey?.plus(1) ?: anchorPage?.nextKey?.minus(1)
         }
     }
+
+
+
+
+
+
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Movie> {
 //page variable= pagenumber.
@@ -41,7 +51,6 @@ class MoviePaging(val s: String, val movieInterface: MovieInterface) : PagingSou
 
 
             )
-
 
 
         }catch (e:Exception){
