@@ -1,114 +1,84 @@
 package com.example.projektarb.SignUp
 
+
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
-
+import android.widget.Button
+import android.widget.EditText
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.fragment.app.Fragment
-
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.room.Room
 import com.example.projektarb.R
-import com.example.projektarb.SignUp.User.User
-import com.example.projektarb.SignUp.User.UserViewModel
-
-
-import com.example.projektarb.databinding.FragmentSignUpBinding
-
-
-
 
 class SignUpFragment : Fragment() {
-    private lateinit var userViewModel: UserViewModel
-    private lateinit var signUpViewModel: SignUpViewModel
-    private lateinit var binding: FragmentSignUpBinding
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
-        signUpViewModel = ViewModelProvider(this).get(SignUpViewModel::class.java)
-
-        // Restore user input from ViewModel (if it exists)
-        signUpViewModel.name = savedInstanceState?.getString("name") ?: ""
-        signUpViewModel.email = savedInstanceState?.getString("email") ?: ""
-        signUpViewModel.password = savedInstanceState?.getString("password") ?: ""
-    }
+    private lateinit var db: AppDatabase
+    private lateinit var userInputDao: UserInputDao
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentSignUpBinding.inflate(inflater, container, false)
-        return binding.root
-    }
+        val view = inflater.inflate(R.layout.fragment_sign_up, container, false)
 
+        db = Room.databaseBuilder(
+            requireContext().applicationContext,
+            AppDatabase::class.java, "user-inputs"
+        ).build()
 
+        userInputDao = db.userInputDao()
 
+        val nameEditText = view.findViewById<EditText>(R.id.nameEditText)
+        val emailEditText = view.findViewById<EditText>(R.id.emailEditText)
+        val passwordEditText = view.findViewById<EditText>(R.id.passwordEditText)
+        val submitButton = view.findViewById<Button>(R.id.submitButton)
+        val clearButton = view.findViewById<Button>(R.id.clearButton)
+        val outputTextView = view.findViewById<TextView>(R.id.outputTextView)
+        val backButton = view.findViewById<ImageView>(R.id.back_press112)
 
+        submitButton.setOnClickListener {
+            val name = nameEditText.text.toString()
+            val email = emailEditText.text.toString()
+            val password = passwordEditText.text.toString()
 
+            val userInput = UserInput(name, email, password)
 
+            Thread {
+                userInputDao.insert(userInput)
 
+                val userInputList = userInputDao.getAll()
+                val userInputString = userInputList.joinToString("\n") { it.toString() }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        binding.nameEditText.setText(signUpViewModel.name)
-        binding.emailEditText.setText(signUpViewModel.email)
-        binding.passwordEditText.setText(signUpViewModel.password)
-
-        binding.submitButton.setOnClickListener {
-            signUpViewModel.name = binding.nameEditText.text.toString()
-            signUpViewModel.email = binding.emailEditText.text.toString()
-            signUpViewModel.password = binding.passwordEditText.text.toString()
-
-            val user = User(signUpViewModel.name, signUpViewModel.email, signUpViewModel.password)
-            userViewModel.addUser(user)
-
-            val users = userViewModel.users.map { "${it.name}, ${it.email}, ${it.password}" }
-            binding.usersTextView.text = users.joinToString("\n")
-
+                activity?.runOnUiThread {
+                    outputTextView.text = userInputString
+                }
+            }.start()
         }
 
-        //Trying to color the fkn buttons
-        binding.submitButton.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.RedFlix))
-        binding.clearButton.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.RedFlix))
+        clearButton.setOnClickListener {
+            Thread {
+                userInputDao.clearAll()
 
-
-
-        binding.clearButton.setOnClickListener {
-            userViewModel.clearUsers()
-            binding.usersTextView.text = ""
+                activity?.runOnUiThread {
+                    outputTextView.text = ""
+                }
+            }.start()
         }
 
-        binding.backPress1.setOnClickListener {
+
+
+
+
+
+        backButton.setOnClickListener {
             findNavController().popBackStack()
         }
+
+
+        return view
     }
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-
-        // Save user input to ViewModel
-        signUpViewModel.name = binding.nameEditText.text.toString()
-        signUpViewModel.email = binding.emailEditText.text.toString()
-        signUpViewModel.password = binding.passwordEditText.text.toString()
-
-        // Save user input to Bundle
-        outState.putString("name", signUpViewModel.name)
-        outState.putString("email", signUpViewModel.email)
-        outState.putString("password", signUpViewModel.password)
-    }
-
-
-
-
-
-
-
-
 }
-
-
-

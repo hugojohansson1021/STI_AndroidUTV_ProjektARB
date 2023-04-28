@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     android:padding="16dp">
 
+
+    <ImageView
+        android:id="@+id/back_press112"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/ic_twotone_keyboard_backspace_24_2" />
+    
+    
     <EditText
         android:id="@+id/nameEditText"
         android:layout_width="match_parent"
